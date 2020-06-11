@@ -55,13 +55,18 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver,timeout);
     }
-
+    //quit
     public void quit(){
+
         driver.quit();
     }
+    //click
     public void click(By by){
         //移动端即时页面不可点击其实也是可点击的，故不用clickable
         wait.until(ExpectedConditions.visibilityOfElementLocated(by)).click();
+//        while (driver.findElements(by).size()==0){
+//            click(by);
+//        }
     }
 
     // sendKeys
@@ -72,7 +77,7 @@ public class BasePage {
 
     //find
     public MobileElement find(By by){
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return driver.findElement(by);
     }
 
