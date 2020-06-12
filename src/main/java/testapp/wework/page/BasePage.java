@@ -1,7 +1,10 @@
 package testapp.wework.page;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -84,6 +87,17 @@ public class BasePage {
     // byTest
     public By byTest(String text){
         return By.xpath("//*[@text='"+text+"']");
+    }
+
+    // moveto
+    public void swipe(){
+        //获取手机屏幕宽，高
+       int width= driver.manage().window().getSize().getWidth();
+       int height=driver.manage().window().getSize().getHeight();
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.press(PointOption.point((int)(width*0.5),(int)(height*0.5)))
+                .moveTo(PointOption.point((int)(width*0.5),(int)(height*0.8)));
+
     }
 
 }
