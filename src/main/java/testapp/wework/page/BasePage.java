@@ -3,6 +3,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -89,14 +91,21 @@ public class BasePage {
         return By.xpath("//*[@text='"+text+"']");
     }
 
-    // moveto
+    //定位从左上角坐标为[0,0]，往下越来越大。
+    // 向上滑动
     public void swipe(){
         //获取手机屏幕宽，高
        int width= driver.manage().window().getSize().getWidth();
        int height=driver.manage().window().getSize().getHeight();
+        try {
+            //等待页面加载时间
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         TouchAction touchAction = new TouchAction(driver);
-        touchAction.press(PointOption.point((int)(width*0.5),(int)(height*0.5)))
-                .moveTo(PointOption.point((int)(width*0.5),(int)(height*0.8)));
+        touchAction.press(PointOption.point((int)(width*0.5),(int)(height*0.9))).waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)))
+                .moveTo(PointOption.point((int)(width*0.5),(int)(height*0.3))).release().perform();
 
     }
 

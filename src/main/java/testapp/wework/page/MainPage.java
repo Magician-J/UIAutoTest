@@ -20,7 +20,11 @@ public class MainPage extends BasePage {
 
     // 跳转工作台
     public WorkStation workStation(){
-        click(By.id("dsp"));
+        click(byTest("工作台"));
+        //此处不能用while如下判断否则报错
+//        while (driver.findElements(By.xpath("//*[@text='工作台']")).size()==0){
+//            driver.findElement(By.xpath("//*[@text='工作台']")).click();
+//        }
         return  new WorkStation(driver);
     }
 

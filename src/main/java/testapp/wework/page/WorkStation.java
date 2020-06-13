@@ -8,9 +8,18 @@ public class WorkStation extends BasePage {
     public WorkStation(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
-    public ReportPage toReportpage(){
+
+    public ReportPage toReportpage() {
         swipe();
-        click(By.id("d0c"));
+//        click(byTest("汇报"));
+        while (driver.findElements(byTest("汇报")).size() == 0) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        click(byTest("汇报"));
         return new ReportPage(driver);
     }
 }
