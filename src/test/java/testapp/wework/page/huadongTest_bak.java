@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2020/6/13 21:15
  */
 // 测试用类，不是本项目所需
-class huadongTest {
+class huadongTest_bak {
    static AppiumDriver<MobileElement> driver;
    static WebDriverWait wait;
     @BeforeAll
