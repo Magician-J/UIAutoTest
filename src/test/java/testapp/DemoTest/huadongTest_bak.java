@@ -1,4 +1,4 @@
-package testapp.wework.page;
+package testapp.DemoTest;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

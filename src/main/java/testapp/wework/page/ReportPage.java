@@ -15,7 +15,6 @@ public class ReportPage extends BasePage{
         find(By.xpath("//*/android.widget.EditText[1]")).sendKeys(content);
         swipe();
         find(By.xpath("//*[@content-desc='提交']")).click();
-
     }
     public void week_Report_Page(){
 
