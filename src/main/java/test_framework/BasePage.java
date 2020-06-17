@@ -29,7 +29,9 @@ public class BasePage {
 
     public void run(UIAuto uiAuto){
         uiAuto.steps.stream().forEach(m->{
+            //keySet()：map中返回键值
             if (m.keySet().contains("click")){
+                //click 指定了参数类型
                 click((HashMap<String, Object>)(m.get("click")));
             }
         });
