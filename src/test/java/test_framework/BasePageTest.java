@@ -40,6 +40,7 @@ class BasePageTest {
 
     @Test
     void load() throws JsonProcessingException {
+        //"/text.txt": 以这种模式传入的参数，将会从对应的resource下查找文件。
        UIAuto uiAuto= basePage.load("/test_framework/uiauto.yaml");
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(uiAuto));
