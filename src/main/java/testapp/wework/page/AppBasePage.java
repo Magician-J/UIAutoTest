@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test_framework.BasePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  * @author jiaoyl
  * @date 2020/6/4 23:20
  */
-public class BasePage {
+public class AppBasePage extends BasePage {
 //     AndroidDriver<MobileElement> driver;
      AppiumDriver<MobileElement> driver;
      WebDriverWait wait;
@@ -28,17 +29,22 @@ public class BasePage {
      String activityName;
      int timeout=60;
 
-    public BasePage(String packageName, String activityName) {
+
+
+    public AppBasePage(String packageName, String activityName) {
         this.packageName = packageName;
         this.activityName = activityName;
         startApp(this.packageName,this.activityName);
     }
 
-    public BasePage(AppiumDriver<MobileElement> driver) {
+    public AppBasePage(AppiumDriver<MobileElement> driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver,timeout);
     }
 
+    public AppBasePage() {
+
+    }
 
     public void startApp(String packageName, String activityName) {
         //企业微信

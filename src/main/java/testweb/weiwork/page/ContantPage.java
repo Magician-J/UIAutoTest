@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
  * @author jiaoyl
  * @date 2020/5/31 23:00
  */
-public class ContantPage extends BasePage {
+public class ContantPage extends WebBasePage {
     By addmember = By.linkText("添加成员");
     By username = By.name("username");
     //此处删除按钮的定位不建议使用linktest，会点击到列表页的删除按钮，报错。

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @author jiaoyl
  * @date 2020/5/31 22:58
  */
-public class MainPage extends BasePage {
+public class MainPage extends WebBasePage {
 //    public MainPage(){
 //        super();
 //    }

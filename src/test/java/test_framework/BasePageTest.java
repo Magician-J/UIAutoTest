@@ -38,6 +38,7 @@ class BasePageTest {
         basePage.run(uiAuto);
     }
 
+
     @Test
     void load() throws JsonProcessingException {
         //"/text.txt": 以这种模式传入的参数，将会从对应的resource下查找文件。

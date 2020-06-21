@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @author jiaoyl
  * @date 2020/6/11 21:08
  */
-public class 待办Page extends BasePage {
+public class 待办Page extends AppBasePage {
     private By add=By.id("gym");
     private By title=By.id("b2k");
     private By save=By.xpath("//*[@text='保存']");

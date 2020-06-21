@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 
-public class ReportPage extends BasePage{
+public class ReportPage extends AppBasePage {
 
     public ReportPage(AppiumDriver<MobileElement> driver) {
         super(driver);

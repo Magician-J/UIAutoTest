@@ -2,7 +2,7 @@ package testapp.wework.page;
 
 import org.openqa.selenium.By;
 
-public class MainPage extends BasePage {
+public class MainPage extends AppBasePage {
     public MainPage() {
 
         super("com.tencent.wework", ".launch.WwMainActivity");

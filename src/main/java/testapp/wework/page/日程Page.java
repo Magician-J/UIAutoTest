@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class 日程Page extends BasePage {
+public class 日程Page extends AppBasePage {
     //初始化By变量
     //多版本app，多平台app，定位符通常是有差别的
     private By add = By.id("gym");

@@ -2,9 +2,8 @@ package testapp.wework.page;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import org.openqa.selenium.By;
 
-public class WorkStation extends BasePage {
+public class WorkStation extends AppBasePage {
     public WorkStation(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
