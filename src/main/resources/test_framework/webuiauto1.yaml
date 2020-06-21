@@ -4,8 +4,8 @@ steps:
     # 主要使用模式1
   - action: get
     url: https://ceshiren.com
-  - click: {linkText: 最新}
-  - click: {linkText: 热门}
+  - click: {linkText: 开源项目}
+  - click: {linkText: 测试内推}
 
 
 
