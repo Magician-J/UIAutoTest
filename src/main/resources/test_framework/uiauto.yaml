@@ -3,11 +3,30 @@ description: xxx
 steps:
 #   基本自动化领域有建模
 #   业务模型
-  - method: click
-    param: [1,2]
-  - action: click
-    by: id
-    locator: search
-  - action: click
-    id: click
-  - click: { id: search }
+# 通用方法
+##    通用方法加参数、
+#  - method: click
+#    params:
+#      by: id
+#      value: value
+#  - by: id
+#    value: search
+#    action: click
+## 进一步简化,如果by知识单个的字符串，可以进一步简化。
+## 常用模式
+##  - id: 控件
+##    action: 操作
+#  - id: search
+#    action: click
+#  - id: search
+#    action: sendKeys
+#    text: "seveniruby hogwarts"
+    # 主要使用模式1
+  - id: search
+    sendKeys: "seveniruby hogwarts"
+    # 主要使用模式2
+  - click: {id: search}
+  - id: search
+    action: getText
+    key: search_text
+
