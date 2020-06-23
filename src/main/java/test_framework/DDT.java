@@ -16,7 +16,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
  * @author jiaoyl
  * @date 2020/6/21 19:50
  */
-public class WebTest {
+public class DDT {
     private static BasePage basePage;
 
     @BeforeAll

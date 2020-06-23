@@ -1,0 +1,16 @@
+name: xxx
+description: xxx
+steps:
+  - page: MainPage
+  - action: toSearch
+  - page : SearchPage
+  - search: keyword
+  - action: getUserName
+  - action: equals
+    expect: xxxfff
+    actual: xxx
+
+
+  # 完成get attribute 获取文本 的封装
+#  - action: getattribute
+#    locator: {linkText: 热门}
