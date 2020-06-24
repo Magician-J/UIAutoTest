@@ -6,9 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.omg.CORBA.ObjectHelper;
 import org.openqa.selenium.By;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.List;
+import java.util.stream.Stream;
 
 
 /**
@@ -17,6 +20,7 @@ import java.util.HashMap;
  */
 //自动化领域建模
 public class BasePage {
+    List<PageObjectModel> pages = new ArrayList<>();
     public void click(HashMap<String ,Object> map){
 //        driver.findElement(By.id(""));
         System.out.println("click");
@@ -30,6 +34,8 @@ public class BasePage {
     public void action(HashMap<String,Object> map){
         System.out.println("action");
         System.out.println(map);
+        String action = map.get("action").toString().toLowerCase();
+
     }
     public void find(){
 
@@ -63,6 +69,10 @@ public class BasePage {
             if (m.containsKey("action")){
                 action(m);
             }
+//            if (m.containsKey("page")){
+//                action(m);
+//            }
+
         });
     }
 
@@ -80,8 +90,29 @@ public class BasePage {
             e.printStackTrace();
         }
         return uiAuto;
+    }
+    //loadpage 单页面 yaml文件
+    public PageObjectModel loadpage(String path){
+        //初始化mapper对象
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        PageObjectModel pom= null;
+        try {
+            //读取给定的资源路径
+            pom = mapper.readValue(
+                    BasePage.class.getResourceAsStream(path),
+                    PageObjectModel.class //强行转成UIAuto模型
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pom;
+    }
 
-
+    //loadpages 多页面 yaml文件
+    public void loadpages(String dir){
+        Stream.of(new File(dir).list()).forEach(path->{
+            pages.add(loadpage(path));
+        });
     }
 
 
