@@ -5,7 +5,7 @@ steps:
     action: init
 
   - page: main
-  - action: toSearch
+    action: visit
 
   - page: contact
-  - action: search
+    action: search

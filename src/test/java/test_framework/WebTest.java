@@ -39,9 +39,11 @@ public class WebTest {
     //参数化方法
     static List<Arguments> classic(){
         basePage = UIAutoFactory.creat("web");
+        basePage.loadpages("src/main/resources/test_framework/");
         List<Arguments> all = new ArrayList<Arguments>();
         Arrays.asList(
-                "/test_framework/webuiauto1.yaml",
+//                "/test_framework/webuiauto1.yaml",
+//                "/test_framework/webuiauto2.yaml",
                 "/test_framework/webuiauto3.yaml"
         ).stream().forEach(path->{
             UIAuto uiAuto = basePage.load(path);

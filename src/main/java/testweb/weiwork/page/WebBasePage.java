@@ -76,17 +76,13 @@ public class WebBasePage extends BasePage {
     @Override
     public void action(HashMap<String, Object> map) {
         super.action(map);
-        String action =map.get("action").toString().toLowerCase();
-        if (action.equals("get")) {
-            driver.get(map.get("url").toString().toLowerCase());
-        }
-        // todo:课间作业：完成get attribute 获取文本 的封装
-        if (action.equals("mainpage.tosearch")){
-
-        }
-        else {
-            System.out.println("error get");
+        // 个别步骤不包含action，加判断
+        if (map.containsKey("action")) {
+            String action = map.get("action").toString().toLowerCase();
+            if (action.equals("get")) {
+                driver.get(map.get("url").toString().toLowerCase());
+            }
+            // todo:课间作业：完成get attribute 获取文本 的封装
         }
     }
-
 }

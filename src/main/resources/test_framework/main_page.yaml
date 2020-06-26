@@ -1,14 +1,23 @@
 name: main
 methods:
+# 模型
+#  init:
+#    - click: {id: xxxx}
+#  toSearch:
+#    - click: {id: xxx}
+#    - click: {xpath: ddd}
+#    - id: xxx
+#      sendKeys: "111222"
+#  Search:
+#    - click: {id: xxx}
+#    - click: {xpath: ddd}
+#    - id: xxx
+#      sendKeys: "111222"
+#
+# 实例：
   init:
-    - click: {id: xxxx}
-  toSearch:
-    - click: {id: xxx}
-    - click: {xpath: ddd}
-    - id: xxx
-      sendKeys: "111222"
-  Search:
-    - click: {id: xxx}
-    - click: {xpath: ddd}
-    - id: xxx
-      sendKeys: "111222"
+    - action: get
+      url: https://ceshiren.com
+  visit:
+    - click: {linkText: 开源项目}
+    - click: {linkText: 测试内推}
