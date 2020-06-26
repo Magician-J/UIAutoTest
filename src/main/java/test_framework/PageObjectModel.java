@@ -8,7 +8,8 @@ import java.util.List;
  * @date 2020/6/23 23:18
  */
 public class PageObjectModel {
-    public String pagename;
+    //
+    public String name;
     //对应main_page.yaml里的结构
     public HashMap<String, List<HashMap<String, Object>>> methods;
 }

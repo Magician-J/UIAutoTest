@@ -38,6 +38,12 @@ class BasePageTest {
         basePage.run(uiAuto);
     }
 
+    @Test
+    void runPom(){
+        basePage.loadpages("src/main/resources/test_framework/");
+        UIAuto uiAuto= basePage.load("/test_framework/webuiauto3.yaml");
+        basePage.run(uiAuto);
+    }
 
     @Test
     void load() throws JsonProcessingException {

@@ -1,5 +1,7 @@
-name: main_page
+name: main
 methods:
+  init:
+    - click: {id: xxxx}
   toSearch:
     - click: {id: xxx}
     - click: {xpath: ddd}
