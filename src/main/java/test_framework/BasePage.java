@@ -42,10 +42,10 @@ public class BasePage {
             //打印pom.name
             pages.forEach(pom->System.out.println(pom.name));
             pages.stream()
-                    // filter 过滤文件
+                    // filter 过滤文件；filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
                     .filter(pom-> pom.name.equals(pageName))
-                    .findFirst()
-                    .get()//get()取出里面的值
+                    .findFirst()//返回集合的第一个对象
+                    .get()//获取第一个对象的值的值
                     .methods.get(action).forEach(step->{
                 action(step);
             });
