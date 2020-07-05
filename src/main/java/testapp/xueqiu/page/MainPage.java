@@ -18,6 +18,10 @@ public class MainPage extends BasePage {
     }
     //
     public void toStock(){
-
+    }
+    // 到交易页面
+    public TradePage toTradePage(){
+        click(By.xpath("//*[@text='交易']"));
+        return new TradePage(driver);
     }
 }

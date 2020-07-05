@@ -32,7 +32,7 @@ public class WebView_teacher_demo {
         desiredCapabilities.setCapability("noReset", "true");
 //        desiredCapabilities.setCapability("dontStopAppOnReset", "true");
 
-//        desiredCapabilities.setCapability("chromedriverExecutable", "/Users/seveniruby/projects/chromedriver/72/chromedriver");
+        desiredCapabilities.setCapability("chromedriverExecutable", "H:\\hogwarts\\tools\\chromedriver_win32\\chromedriver.exe");
 
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
@@ -51,7 +51,7 @@ public class WebView_teacher_demo {
     @Test
     public void webview_web() throws InterruptedException {
         driver.findElement(By.xpath("//*[@text='交易']")).click();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             driver.getContextHandles().forEach(context -> System.out.println(context.toString()));
             Thread.sleep(500);
         }
@@ -70,7 +70,9 @@ public class WebView_teacher_demo {
 //        });
 
         Object[] array = driver.getWindowHandles().toArray();
-        driver.switchTo().window(array[array.length - 1].toString());
+        System.out.println(array[array.length - 2].toString());
+//        driver.switchTo().window(array[array.length - 1].toString());
+        driver.switchTo().window(array[array.length - 2].toString());
 
         driver.findElement(By.cssSelector(".trade_home_info_3aI")).click();
 

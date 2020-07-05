@@ -1,4 +1,4 @@
-package testapp.xueqiu;
+package testapp.xueqiu.page;
 
 import testapp.xueqiu.page.MainPage;
 import testapp.xueqiu.page.SearchPage;
