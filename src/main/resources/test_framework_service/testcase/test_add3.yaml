@@ -1,0 +1,11 @@
+# ApiTestCaseModel
+name: add3
+description: xxx333
+steps:
+  # 解析的时候用的List，故下面使用数组。
+  - api: wework
+    action: get_token
+  - api: list
+    action: get_token
+    params:
+      tag_id: [1,2,3]

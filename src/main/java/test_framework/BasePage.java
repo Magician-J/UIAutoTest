@@ -21,7 +21,9 @@ import java.util.stream.Stream;
  */
 //自动化领域建模
 public class BasePage {
+
     List<PageObjectModel> pages = new ArrayList<>();
+
     public void click(HashMap<String ,Object> map){
 //        driver.findElement(By.id(""));
         System.out.println("click");
@@ -47,7 +49,7 @@ public class BasePage {
                     .findFirst()//返回集合的第一个对象
                     .get()//获取第一个对象的值的值
                     .methods.get(action).forEach(step->{
-                action(step);
+                action(step);//获取具体操作，调用else中的操作
             });
         }else{
             //如果是自动化级别
@@ -144,6 +146,7 @@ public class BasePage {
         Stream.of(new File(dir).list(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
+
                 return name.contains("_page");
             }
         })).forEach(path->{

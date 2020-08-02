@@ -36,7 +36,8 @@ public class WebTest {
         basePage.run(uiAuto);
     }
 
-    //参数化方法
+
+    //同名参数化方法classic
     static List<Arguments> classic(){
         basePage = UIAutoFactory.creat("web");
         basePage.loadpages("src/main/resources/test_framework/");
