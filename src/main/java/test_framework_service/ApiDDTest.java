@@ -23,6 +23,8 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
  *
  * testcase 的数据驱动实现
  */
+
+//
 public class ApiDDTest {
 
     private static BaseApi baseApi;
@@ -37,16 +39,35 @@ public class ApiDDTest {
 
         // 加载所有的api object
         baseApi = new BaseApi();
-        baseApi.load("src/main/resources/test_framework_service/api");
+        //打印环境变量
+//        System.out.println(System.getProperties());
+
+        // 传入一个api参数，运行jar包时传入
+        if (System.getProperty("api")!=null){
+            baseApi.load(System.getProperty("api"));
+        }else {
+            System.out.println("load error");
+//            baseApi.load("src/main/resources/test_framework_service/api");
+        }
+
 
         // 用来传递给参数话用例
         List<Arguments> testcases = new ArrayList<>();
 
         //读取所有的测试用例。
-        String testcaseDir = "src/main/resources/test_framework_service/testcase";
+        String testcaseDir = "";
+        if (System.getProperty("test")!=null){
+            testcaseDir = System.getProperty("test");
+
+        }else {
+            System.out.println("load error");
+//            baseApi.load("src/main/resources/test_framework_service/api");
+        }
+
+        String finalTestcaseDir = testcaseDir;
         Arrays.stream(new File(testcaseDir).list()).forEach(
                 name->{
-                    String path=testcaseDir+"/"+name;
+                    String path= finalTestcaseDir +"/"+name;
                     try {
                         ApiTestCaseModel apiTestCase = ApiTestCaseModel.load(path);
                         //arguments(apiTestCase) 生成一个参数传给apiTest；其中 name 给上面index 1 用的
