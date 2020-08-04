@@ -46,12 +46,12 @@ public class ApiDDTest {
         if (System.getProperty("api")!=null){
             baseApi.load(System.getProperty("api"));
         }else {
-            System.out.println("load error");
-//            baseApi.load("src/main/resources/test_framework_service/api");
+            System.out.println("load error，使用调试默认值");
+            baseApi.load("src/main/resources/test_framework_service/api");
         }
 
 
-        // 用来传递给参数话用例
+        // 用来传递给参数化用例
         List<Arguments> testcases = new ArrayList<>();
 
         //读取所有的测试用例。
@@ -60,8 +60,9 @@ public class ApiDDTest {
             testcaseDir = System.getProperty("test");
 
         }else {
-            System.out.println("load error");
-//            baseApi.load("src/main/resources/test_framework_service/api");
+            System.out.println("load error，使用调试默认值");
+//            baseApi.load("src/main/resources/test_framework_service/testcase");
+            testcaseDir ="src/main/resources/test_framework_service/testcase";
         }
 
         String finalTestcaseDir = testcaseDir;
